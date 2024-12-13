@@ -1,37 +1,17 @@
 # 🧩 🧩 Maizzle framework
 
-On this page you will find the following information:
-
-* [Before you start](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-before-you-start)
-* [Intro](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-intro)
-* [Process](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-process)
-* [Project structure](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-project-structure)
-* [Pre-header](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-preheader)
-* [Litmus testing](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-litmus-testing)
-* [Uploading to Veeva and sending to QA](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-uploading-to-veeva-and-sending-to-qa)
-* [Coding tips](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-coding-tips)
-* [Styling guidelines](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-styling-guidelines)
-* [Useful Scripts](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-useful-scripts)
-* [Practice](https://wiki.kindred.cz/doc/maizzle-framework-zdZrMPLKAF/edit#h-practice)
-
-
-A quick video intro to the Maizzle framework can be found [here](https://publicisgroupe-my.sharepoint.com/personal/ailwerne_publicisgroupe_net/_layouts/15/stream.aspx?id=%2Fpersonal%2Failwerne%5Fpublicisgroupe%5Fnet%2FDocuments%2FRecordings%2FMaizzle%20framework%2D20240119%5F114800%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview&ga=1).
-
-Boilerplate is [here](https://gitlab.nurunprague.cz/pfizer/rte-maizzle/rte-maizzle-boilerplate)
-
 ## Before you start:
 
 Please make sure you have:
 
 * Installed NodeJS 18 or higher
 * Installed prettier in VS code or whatever editor you prefer
-* The boilerplate repository uses the Veeva Scripts package which is hosted on Gitlab. You need to set the authentication tokens for NPM like this <https://wiki.kindred.cz/doc/npmrc-J7IN3f54mZ>. This needs to happen only once.
 
 # Intro:
 
 Once you clone the files into your local computer, you will see that the folder structure for the Maizzle framework is quite more complex than what we're used to. Let's go through it.
 
-The idea behind using this framework, is that it's a lot easier to share the workload for each template. Each section is coded into different html files, and this means that each team member can work on different sections of each email, without having merging issues on git, for example.
+The idea behind using this framework, is that it's a lot easier to share the work   load for each template. Each section is coded into different html files, and this means that each team member can work on different sections of each email, without having merging issues on git, for example.
 
 The framework uses Tailwind CSS. This means we have a lot (if not all) of the css attributes that we will ever need in one place. Here's Tailwind CSS cheat sheet for reference: <https://tailwindcomponents.com/cheatsheet/>
 
@@ -129,44 +109,15 @@ Here's how it will look:
 
  ![](attachments/541e7684-0c31-4b48-9c26-120aa3e687f9.png " =712x246")
 
-### Multiple Preheaders
-
-Also you can use multiple preheaders by using {{customText\[value1|value2|etc…\]}}
-
-```
----
-preheader: "{{customText[value1|value2|value3]}}"
----
-```
-
-Here's how it will look:
-
- ![](attachments/f39e4344-386f-47bd-9942-f6ce89b65637.png)
-
-After running veeva:build script it will generate the needed code to make multiple preheaders work and make it choosable before sending.
 
 # Litmus testing:
 
-[Litmus testing guide](https://wiki.kindred.cz/doc/litmus-testing-guide-d0iZQogFED)
 
-Once you're done, and the email looks similar on localhost as in design, you need to ensure that your email will render correctly on all required email clients. To do it correctly, you have to run the build command (`npm run build`). The reason is that it automatically replaces all your tailwind classes with inline css, which is necessary for testing. Once you run that script, this will generate a folder called dist/full_version, and inside that folder you will find the index.html and the images. In litmus you will need to create a test on the builder (make sure to add the images as well). More on how to test on Litmus [here](https://docs.publicis.tech/doc/using-litmus-MZyF8nIAWG).
-
-# Uploading to Veeva and sending to QA:
-
-Once you're happy with your litmus test, you will need to start the process of uploading to Veeva. For this you will need to run the following script:
-
-```
-npm run veeva:build
-```
-
-This will create the final files for you to upload to Veeva. If your email doesn't have fragments in it, then you will find your final files in the folder `dist/full_version/`. If your email has fragments, then it will also create a second folder where the fragmented version will be: `dist/fragmented_version`.
-
-Upload to Veeva, and send to QA.
-
+Once you're done, and the email looks similar on localhost as in design, you need to ensure that your email will render correctly on all required email clients. To do it correctly, you have to run the build command (`npm run build`). The reason is that it automatically replaces all your tailwind classes with inline css, which is necessary for testing. Once you run that script, this will generate a folder called dist/full_version, and inside that folder you will find the index.html and the images. In litmus you will need to create a test on the builder (make sure to add the images as well).
 
 # Coding tips:
 
-You only need to work with <table>, <tr> and <td>. The usual attributes we add to our tables for example (role="presentation" cellpadding="0" cellspacing="0") have to be left out now, as they're added automatically by the veeva script. We only need to create the main structure, and add the tailwind classes to make it look like we want. Remember that you have Tailwind's cheat sheet for the css: <https://tailwindcomponents.com/cheatsheet/> . Here's an example of the code for reference:
+You only need to work with `<table>`, `<tr>` and `<td>`. The usual attributes we add to our tables for example (role="presentation" cellpadding="0" cellspacing="0") have to be left out now, as they're added automatically by the script. We only need to create the main structure, and add the tailwind classes to make it look like we want. Remember that you have Tailwind's cheat sheet for the css: <https://tailwindcomponents.com/cheatsheet/> . Here's an example of the code for reference:
 
 ```markup
 <table>
@@ -174,7 +125,7 @@ You only need to work with <table>, <tr> and <td>. The usual attributes we add t
         <td>
             <x-image
                 class="w-[600px]"
-                imgUrl="images/pfizer_logo.png"
+                imgUrl="images/logo.png"
             />
         </td>
     </tr>
@@ -201,7 +152,7 @@ You only need to work with <table>, <tr> and <td>. The usual attributes we add t
             class="text-[#000049] text-[16px] leading-[22px] pt-[26px] text-justify"
           >
           {{customText[Comme discuté, |Suite à notre dernier entretien, |]}}
-            {{customText[j'ai|J'ai]}} le plaisir de vous informer que Pfizer a
+            {{customText[j'ai|J'ai]}} le plaisir de vous informer que Company a
             développé, en collaboration avec des experts, trois vidéos
             explicatives à l'attention de patientes atteintes d'un cancer du
             sein et de leurs proches.
@@ -247,7 +198,7 @@ If you want to create a table that has only one column, see the example below:
 ```
 
 
-As you see, every type of content goes **always** inside the <td> element.
+As you see, every type of content goes **always** inside the `<td>` element.
 
 If you want to have a table with multiple columns, here is how you can do it:
 
@@ -297,15 +248,15 @@ Do not use colspan on tables, it does not work on some email clients - it can al
 Each time you need to add an image, you will need to use the <x-image/> tag to do so. You can add all the different attributes (width, imgUrl, href, etc) inside that tag:
 
 ```html
-<x-image class="w-[450px]" imgUrl="pfizer_footer.png" href="http://www.google.com" />
+<x-image class="w-[450px]" imgUrl="footer.png" href="http://www.google.com" />
 ```
 
 # Styling guidelines:
 
 * Use only tailwind classes - we do not use inline CSS or especially custom CSS classes to keep the styling consistent across the whole project. Tailwind css cheet sheet: <https://tailwindcomponents.com/cheatsheet/>
 * The only exception to inline styling can be dealing with borders, they may not render in all email clients when using tailwind.
-* Do not use any styling on <tr> element - styling classes work correctly often only on <td> and <table> elements.
-* Use only paddings (instead of margin, and do not mix the two) - **padding works only on <td>!**
+* Do not use any styling on `<tr>` element - styling classes work correctly often only on `<td>` and `<table>` elements.
+* Use only paddings (instead of margin, and do not mix the two) - **padding works only on `<td>`!**
 * Type the exact values you want to use for properties like padding or text size, for example: **px-\[10px\]** instead of **px-6**. Tailwind by default uses rem and em values, they do not work correctly on all email clients - that's why we always use pixels.
 * Padding left and right or padding top and bottom: Instead of adding those separately, you can add padding x (horizontal padding) or padding y(vertical padding). If you use padding x: px-\[10px\] is the same as writing them separately like this: pl-\[10px\] pr-\[10px\]. The same thing applies to padding y: having py-\[15px\] is the same as having the individual values: tp-\[15px\] pb-\[15px\].
 * It's possible that some values can repeat often in your email - certain color or font size. You can define these values in tailwind config file (tailwind.config.cjs) during project setup.
@@ -340,7 +291,7 @@ Each time you need to add an image, you will need to use the <x-image/> tag to d
 <table class="align-left-table"></table>
 ```
 
-* **Image size** - when you have to put images inside your section always define the width of <img> by tailwind classes w-\[(size)px\]. For example, if your image takes the whole width of the email, you need to add class w-\[600px\].
+* **Image size** - when you have to put images inside your section always define the width of `<img>` by tailwind classes w-\[(size)px\]. For example, if your image takes the whole width of the email, you need to add class w-\[600px\].
 
 ```html
 <x-image
@@ -349,10 +300,10 @@ Each time you need to add an image, you will need to use the <x-image/> tag to d
 />
 ```
 
-* If you need to add a link to an image, you do so by adding an attribute to the image itself. As you may know, we need to add a link to ALL images in Pfizer. This is because we either need a link behind it, or need an empty link tag behind it to prevent the download icon from appearing. If the client hasn't provided a link, then you DON'T need to add a href to the image, this will be done ***automatically*** when you run the Veeva script. If the client sends a specific link to it, then you need to add it like this:
+* If you need to add a link to an image, you do so by adding an attribute to the image itself. As you may know, we need to add a link to ALL images in Company. This is because we either need a link behind it, or need an empty link tag behind it to prevent the download icon from appearing. If the client hasn't provided a link, then you DON'T need to add a href to the image, this will be done ***automatically*** when you run the script. If the client sends a specific link to it, then you need to add it like this:
 
 ```html
-<x-image class="w-[450px]" imgUrl="pfizer_footer.png" href="http://www.google.com" />
+<x-image class="w-[450px]" imgUrl="footer.png" href="http://www.google.com" />
 ```
 
 * If you want your links have underline, use additionally class `class="underline"`
@@ -390,8 +341,8 @@ Each time you need to add an image, you will need to use the <x-image/> tag to d
 
 ```markup
 <a
-  href="mailto:gdpritaly@pfizer.com?subject=unsubscribe"
-  class="text-black decoration-none">gdpritaly@pfizer.com</a>
+  href="mailto:gdpritaly@company.com?subject=unsubscribe"
+  class="text-black decoration-none">gdpritaly@company.com</a>
 ```
 
 * Hide and show the method for mobile and desktop layouts: Maizzle and Tailwind CSS offer a simple approach to handling desktop and mobile layouts. By using the "hidden" CSS class with responsive breakpoint prefixes, you can easily hide elements on mobile or desktop devices. This technique allows seamless switching between layouts, optimizing the user experience across platforms.
@@ -436,32 +387,3 @@ Command to test the email in Litmus:
 ```
 npm run build
 ```
-
-
-Creating the final files for Veeva: This script will generate additional files inside your main folder (dist/full_version and dist/fragmented_version). These files will have to be uploaded to Veeva - for exact instructions, click [here](https://docs.publicis.tech/doc/uploading-to-veeva-8fa5vTpgZA).
-
-```
-npm run veeva:build
-```
-
-
-# Practice:
-
-Before doing real work on Maizzle, we want you to do a test drive.
-
- Please find the assets for this test [here](https://publicisgroupe-my.sharepoint.com/:f:/g/personal/ondsvec_publicisgroupe_net/EtRWpxSEsEZKrGy-AFUJs64B2IKn3r67R6oyHusFa_H44Q?e=cB69nd)
-
-
-:::info
-The last 3 sections are not marked as fragments in the assets, but please treat them as additional fragments for this test (the section with the reps details + 2 footers).
-
-:::
-
-Please see below the steps for it:
-
-
-1. Go to Gitlab and fork the Maizzle boilerplate <https://gitlab.nurunprague.cz/pfizer/rte-maizzle/rte-maizzle-boilerplate> into the group `pfizer/rte-maizzle/shadowing` and name it with  `team-yourteamname-assetjiraid` so for example `team-rocket-PCF000` . In the fork, select only the Master branch to be added to your final repository.
-2. Clone on your desktop and proceed with email dev with the process as described above (section Process)
-
-
-\
