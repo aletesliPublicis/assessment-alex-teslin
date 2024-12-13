@@ -1,10 +1,10 @@
 # Email development assignment
 
-1. Fork this repository (https://github.com/pxpcee/email-dev-assignment) and name it using this pattern `assessment-your_full_name` so for example `assessment-john_doe`
+1. Fork this repository (https://github.com/pxpcee/email-dev-assignment) and name it using this pattern `assessment-your_full_name`, for example `assessment-john_doe`
 2. Clone your forked repository and build an email using the Maizzle framework in this boilerplate.
     1. Email design for build: https://www.figma.com/design/cIzCXiADiNh9EUrCiVlbps/Generic-Layout?node-id=0-1&node-type=canvas
 3. Commit regularly to your forked repository.
-4. When you are done with the development, please push all the changes to your repository and send us a link to the repository.
+4. When you are done with the development, please push all the changes to your repository and send us a link to it.
 
 ## Evaluation Criteria
 You will be evaluated based on the following criteria:
@@ -28,7 +28,7 @@ If anything is not clear, please do not hesitate to ask.
 - Feel free to explore and use an email sample project located here: https://github.com/pxpcee/email-sample
 ---
 
-# 🧩 🧩 Maizzle framework
+# 🧩 Maizzle framework
 
 ## Before you start:
 
@@ -41,7 +41,7 @@ Please make sure you have:
 
 Once you clone the files into your local computer, you will see that the folder structure for the Maizzle framework is quite more complex than what we're used to. Let's go through it.
 
-The idea behind using this framework, is that it's a lot easier to share the work   load for each template. Each section is coded into different html files, and this means that each team member can work on different sections of each email, without having merging issues on git, for example.
+The idea behind using this framework, is that it's a lot easier to share the workload for each template. Each section is coded into different html files, and this means that each team member can work on different sections of each email, without having merging issues on git, for example.
 
 The framework uses Tailwind CSS. This means we have a lot (if not all) of the css attributes that we will ever need in one place. Here's Tailwind CSS cheat sheet for reference: <https://tailwindcomponents.com/cheatsheet/>
 
@@ -57,7 +57,7 @@ The old way of doing emails is creating one big html file with all the code insi
  ![](attachments/dbec60c6-f8b5-4dc3-a158-df6ea7273512.png " =348x655")
 
 
-You will then need to call each fragment into a section, and each section into your index.html (more on this below). The way you decide to divide each section, is completely up to you. You just have to make sure that's easy to understand and well organized (so if someone else needs to take over your project, they will understand what's going on). What is important is to have a separate section for the fragments, so it's more organized and easy to follow.
+The way you decide to divide each section, is completely up to you. You just have to make sure that’s easy to understand and well organized.
 
 ## Project structure
 
@@ -67,46 +67,13 @@ You will then need to call each fragment into a section, and each section into y
 The most common files that you will work with are in places marked by (\*\*) and they are:
 
 * section: **section-(two digit number).html** - each section of the email that you have to create. Remember that all sections have to follow the same naming pattern: `section-01.html`, `section-02.html`, and so on.
-
-
-* fragments: **fragment-(two digit number).html** - fragments of email which you have to create. Remember that all fragments have to follow the same naming pattern: `fragment-01.html`, `fragment-02.html`, and so on. If you have fragments in your email, you will have to create a folder named `fragments` inside of the `components` folder
-
-  \
 * templates: **index.html** - here you can input your section into email template. Place for your sections are commented inside this file.
 
-
-Each section and fragment will start with its own table. The only difference is that the fragments will have the fragments comments as per usual:
-
-```markup
-<!-- fragment 1 start -->
-<table>
-    <tr>
-        <td>
-            (Your content)
-        </td>
-    </tr>
-</table>
-<!-- fragment 1 end -->
-```
-
-
-```markup
-<!-- fragment 2 start -->
-<table>
-    <tr>
-        <td>
-            (Your content)
-        </td>
-    </tr>
-</table>
-<!-- fragment 2 end -->
-```
-
-And so on.
+Each section will start with its own table.
 
 Let's go through the process of building an email.
 
-Once you define each section of the email, you will need to go into the main template: `PCF-XXX/src/templates/index.html`. This is what you will find there:
+Once you define each section of the email, you will need to go into the main template: `assessment-your_full_name/src/templates/index.html`. This is what you will find there:
 
  ![](attachments/d8bab112-859a-497a-91cc-d41ac5b9a19d.png " =646x463")
 
@@ -116,38 +83,18 @@ In here you will need to call each section, so that when you finish building the
  ![](attachments/6753250e-95e9-40bd-ab2e-636d548ed5b0.png " =566x402")
 
 
-The next step is to code each section. For that, you need to go to `PCF-XXX/src/components/sections/`. You will need to create as many html files as sections you have in the email. If you have any fragments in your email, then one of the sections will be used for those. Similar to what we did before on the index.html, we will now need to call each fragment to that section. For this you will need to add the following code: ` `, `<x-fragments.fragment-02 />`, `<x-fragments.fragment-03 />`, `<x-fragments.fragment-04 />`, `<x-fragments.fragment-05 />`, etc. The list of fragments needs to be surrounded by a table.  This is how it will end up looking:
+The next step is to code each section. For that, you need to go to `assessment-your_full_name/src/components/sections/`. You will need to create as many html files as sections you have in the email.
 
- ![](attachments/52d83dd5-7111-4629-bb22-6ccc9c4fddb1.png " =285x160")
+When all the coding has been done, you will need to run a couple of scripts to get your files ready.
 
-
-Once you finish coding the sections, you will need to get started with the fragments. For this, you will need to create a "fragments" folder at the same level as the "sections" one: `PCF-XXX/src/components/`. In there, you will need to create HTML for each fragment you have in your email. You need to follow the correct naming convention: `fragment-01.html`, `fragment-02.html`, `fragment-03.html`, `fragment-04.html`, `fragment-05.html`, etc.
-
-When all the coding has been done, you will need to run a couple of scripts to get your files ready to upload.
-
-## Preheader
-
-If you ever need to add a preheader to your build, you will need to add it to the index.html file (`PCF-XXX/src/templates/index.html`). You should add the following right at the start of the html:
-
-```
----
-preheader: "Early diagnosis and treatment are critical"
----
-```
-
-Here's how it will look:
-
- ![](attachments/541e7684-0c31-4b48-9c26-120aa3e687f9.png " =712x246")
+# Final version and testing:
 
 
-# Litmus testing:
-
-
-Once you're done, and the email looks similar on localhost as in design, you need to ensure that your email will render correctly on all required email clients. To do it correctly, you have to run the build command (`npm run build`). The reason is that it automatically replaces all your tailwind classes with inline css, which is necessary for testing. Once you run that script, this will generate a folder called dist/full_version, and inside that folder you will find the index.html and the images. In litmus you will need to create a test on the builder (make sure to add the images as well).
+Once you're done, and the email looks similar on localhost as in design, you need to ensure that your email will render correctly on all required email clients. To do it correctly, you have to run the build command (`npm run build`). The reason is that it automatically replaces all your tailwind classes with inline css, which is necessary for testing. Once you run that script, this will generate a folder called dist/full_version, and inside that folder you will find the index.html and the images. This is the html that should be tested.
 
 # Coding tips:
 
-You only need to work with `<table>`, `<tr>` and `<td>`. The usual attributes we add to our tables for example (role="presentation" cellpadding="0" cellspacing="0") have to be left out now, as they're added automatically by the script. We only need to create the main structure, and add the tailwind classes to make it look like we want. Remember that you have Tailwind's cheat sheet for the css: <https://tailwindcomponents.com/cheatsheet/> . Here's an example of the code for reference:
+You only need to work with `<table>`, `<tr>` and `<td>`. The usual attributes we add to our tables for example (role="presentation" cellpadding="0" cellspacing="0") have to be left out now, as they're added automatically by the script. You only need to create the main structure, and add the tailwind classes to make it look like we want. Remember that you have Tailwind's cheat sheet for the css: <https://tailwindcomponents.com/cheatsheet/> . Here's an example of the code for reference:
 
 ```markup
 <table>
@@ -172,31 +119,21 @@ You only need to work with `<table>`, `<tr>` and `<td>`. The usual attributes we
           <td
             class="text-[#000049] text-[16px] leading-[22px] pt-[26px] text-justify"
           >
-          {{customText[Cher|Ch&egrave;re|Bonjour|]}}
-            {{customText[Docteur|Madame|Professeur|Monsieur|]}}
-            {{customText[##accLname##|##accFname##|]}},
+          Dear John,
           </td>
         </tr>
         <tr>
           <td
             class="text-[#000049] text-[16px] leading-[22px] pt-[26px] text-justify"
           >
-          {{customText[Comme discuté, |Suite à notre dernier entretien, |]}}
-            {{customText[j'ai|J'ai]}} le plaisir de vous informer que Company a
-            développé, en collaboration avec des experts, trois vidéos
-            explicatives à l'attention de patientes atteintes d'un cancer du
-            sein et de leurs proches.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </td>
         </tr>
         <tr>
           <td
             class="text-[#000049] text-[16px] leading-[22px] pt-[26px] text-justify"
           >
-            Ces vidéos complètent la série de 17 vidéos déjà existante et
-            réfèrent d'ailleurs à certaines d'entre-elles.<br />
-            Les sujets traités dans ces 3 vidéos sont la mammographie, les
-            principaux tests moléculaires et les différents stades du cancer du
-            sein.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </td>
         </tr>
         <tr>
@@ -278,7 +215,7 @@ Do not use colspan on tables, it does not work on some email clients - it can al
 Each time you need to add an image, you will need to use the <x-image/> tag to do so. You can add all the different attributes (width, imgUrl, href, etc) inside that tag:
 
 ```html
-<x-image class="w-[450px]" imgUrl="footer.png" href="http://www.google.com" />
+<x-image class="w-[450px]" imgUrl="footer.png" href="#" />
 ```
 
 # Styling guidelines:
@@ -333,14 +270,14 @@ Each time you need to add an image, you will need to use the <x-image/> tag to d
 * If you need to add a link to an image, you do so by adding an attribute to the image itself. As you may know, we need to add a link to ALL images in Company. This is because we either need a link behind it, or need an empty link tag behind it to prevent the download icon from appearing. If the client hasn't provided a link, then you DON'T need to add a href to the image, this will be done ***automatically*** when you run the script. If the client sends a specific link to it, then you need to add it like this:
 
 ```html
-<x-image class="w-[450px]" imgUrl="footer.png" href="http://www.google.com" />
+<x-image class="w-[450px]" imgUrl="footer.png" href="#" />
 ```
 
 * If you want your links have underline, use additionally class `class="underline"`
 
 ```markup
 <a
-  href="http://www.google.com"
+  href="#"
   class="text-black underline"
   target="_blank"
   >click here</a>
@@ -412,7 +349,7 @@ npm run dev
 ```
 
 
-Command to test the email in Litmus:
+Command to generate the final file (the one you will use to test the email):
 
 ```
 npm run build
