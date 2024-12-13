@@ -26,8 +26,6 @@ If anything is not clear, please do not hesitate to ask.
 
 ## Hints
 - Feel free to explore and use an email sample project located here: https://github.com/pxpcee/email-sample
--
-
 ---
 
 # 🧩 🧩 Maizzle framework
