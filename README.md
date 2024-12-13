@@ -1,3 +1,36 @@
+# Email development assignment
+
+1. Fork this repository (https://github.com/pxpcee/email-dev-assignment) and name it using this pattern `assessment-your_full_name` so for example `assessment-john_doe`
+2. Clone the repository and build an email using the Maizzle framework in this boilerplate. For documentation see below
+3. Commit regularly to your forked repository.
+4. When you are done with the development, please push all the changes to your repository and send us a link to the repository.
+
+## Evaluation Criteria
+
+1. Boilerplate Usage
+- Setup and Configuration: Candidate's ability to set up the boilerplate correctly and follow initial instructions.
+- Understanding Modularity: Effective utilization of the boilerplate's structure without unnecessary modifications to core components.
+2. Git Proficiency
+Commit Quality: Clarity and descriptiveness of commit messages.
+Branching Strategy: Use of branches for different task components and adherence to naming conventions.
+Version Control Practices: Appropriate use of pull requests, conflict resolution, and clear commit history without redundant commits.
+3. Email Coding
+Functionality: Ensuring the email feature meets the requirements (e.g., sends emails successfully).
+Code Quality: Writing clean, maintainable code for email components.
+Validation and Error Handling: Implementation of robust validation for email inputs and graceful handling of errors.
+Template Design: If applicable, ensuring email templates are user-friendly, professional, and responsive.
+4. General Software Development Skills
+Code Quality: Readability, adherence to coding standards, and proper documentation.
+Problem Solving: Effective implementation of features or solving provided scenarios creatively and efficiently.
+Testing: Presence and quality of test cases for the developed functionality.
+Time Management: Ability to complete the assignment within the given time frame.
+5. Communication and Reporting
+Documentation: Completeness and clarity of readme files or inline comments explaining the work done.
+Email Communication: If asked to simulate an email, the professionalism and conciseness of the message.
+
+
+---
+
 # 🧩 🧩 Maizzle framework
 
 ## Before you start:
